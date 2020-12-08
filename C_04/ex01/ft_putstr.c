@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_interative_factorial.c                          :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfilipe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 15:44:40 by jfilipe           #+#    #+#             */
-/*   Updated: 2020/12/07 15:44:44 by jfilipe          ###   ########.fr       */
+/*   Created: 2020/12/04 10:38:46 by jfilipe           #+#    #+#             */
+/*   Updated: 2020/12/04 10:42:00 by jfilipe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_interative_factorial(int nb)
-{
-	int j;
+#include <unistd.h>
 
-	if (nb == 0)
-		return (1);
-	if (nb < 0)
-		return (0);
-	j = 1;
-	while (nb > 1)
+void	ft_putstr(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		j *= nb;
-		nb--;
+		write(1, &str[i], 1);
+		i++;
 	}
-	return (j);
 }

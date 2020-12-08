@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_interative_factorial.c                          :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfilipe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 15:44:40 by jfilipe           #+#    #+#             */
-/*   Updated: 2020/12/07 15:44:44 by jfilipe          ###   ########.fr       */
+/*   Created: 2020/12/02 14:37:37 by jfilipe           #+#    #+#             */
+/*   Updated: 2020/12/02 14:37:40 by jfilipe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_interative_factorial(int nb)
-{
-	int j;
+#include <stdbool.h>
 
-	if (nb == 0)
-		return (1);
-	if (nb < 0)
-		return (0);
-	j = 1;
-	while (nb > 1)
+int		ft_str_is_alpha(char *str)
+{
+	int		index;
+	bool	valid;
+	char	curr;
+
+	index = 0;
+	valid = true;
+	while (true)
 	{
-		j *= nb;
-		nb--;
+		curr = str[index];
+		if (curr == '\0')
+		{
+			break ;
+		}
+		if (!((curr >= 'A' && curr <= 'Z') || (curr >= 'a' && curr <= 'z')))
+		{
+			valid = false;
+			break ;
+		}
+		index++;
 	}
-	return (j);
+	return (valid);
 }

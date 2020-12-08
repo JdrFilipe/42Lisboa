@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_interative_factorial.c                          :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfilipe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 15:44:40 by jfilipe           #+#    #+#             */
-/*   Updated: 2020/12/07 15:44:44 by jfilipe          ###   ########.fr       */
+/*   Created: 2020/12/03 09:04:26 by jfilipe           #+#    #+#             */
+/*   Updated: 2020/12/03 09:07:24 by jfilipe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_interative_factorial(int nb)
+int	ft_str_is_printable(char *str)
 {
-	int j;
+	int i;
 
-	if (nb == 0)
+	i = 0;
+	if (str[i] == '\0')
 		return (1);
-	if (nb < 0)
-		return (0);
-	j = 1;
-	while (nb > 1)
+	while (str[i] != '\0')
 	{
-		j *= nb;
-		nb--;
+		if (!((str[i] > 31) && (str[i] < 127)))
+			return (0);
+		i++;
 	}
-	return (j);
+	return (1);
 }

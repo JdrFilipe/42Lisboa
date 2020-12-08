@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_interative_factorial.c                          :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfilipe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 15:44:40 by jfilipe           #+#    #+#             */
-/*   Updated: 2020/12/07 15:44:44 by jfilipe          ###   ########.fr       */
+/*   Created: 2020/12/02 12:31:16 by jfilipe           #+#    #+#             */
+/*   Updated: 2020/12/02 12:46:06 by jfilipe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_interative_factorial(int nb)
+char	*ft_strcpy(char *dest, char *src)
 {
-	int j;
+	int i;
 
-	if (nb == 0)
-		return (1);
-	if (nb < 0)
-		return (0);
-	j = 1;
-	while (nb > 1)
+	i = 0;
+	while (src[i] != '\0')
 	{
-		j *= nb;
-		nb--;
+		dest[i] = src[i];
+		i++;
 	}
-	return (j);
+	dest[i] = src[i];
+	return (dest);
 }

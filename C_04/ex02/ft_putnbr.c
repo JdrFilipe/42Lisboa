@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_interative_factorial.c                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfilipe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 15:44:40 by jfilipe           #+#    #+#             */
-/*   Updated: 2020/12/07 15:44:44 by jfilipe          ###   ########.fr       */
+/*   Created: 2020/12/04 10:42:28 by jfilipe           #+#    #+#             */
+/*   Updated: 2020/12/07 17:07:44 by jfilipe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_interative_factorial(int nb)
-{
-	int j;
+#include <unistd.h>
 
-	if (nb == 0)
-		return (1);
-	if (nb < 0)
-		return (0);
-	j = 1;
-	while (nb > 1)
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
-		j *= nb;
-		nb--;
+		ft_putchar('-');
+		ft_putchar('2');
+		ft_putnbr(147483648);
+		return ;
 	}
-	return (j);
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb *= -1;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+	{
+		ft_putchar(nb + 48);
+	}
 }

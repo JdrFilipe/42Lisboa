@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_interative_factorial.c                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfilipe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 15:44:40 by jfilipe           #+#    #+#             */
-/*   Updated: 2020/12/07 15:44:44 by jfilipe          ###   ########.fr       */
+/*   Created: 2020/12/03 13:03:45 by jfilipe           #+#    #+#             */
+/*   Updated: 2020/12/03 13:04:12 by jfilipe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_interative_factorial(int nb)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int j;
+	char			*i;
+	unsigned int	c;
 
-	if (nb == 0)
-		return (1);
-	if (nb < 0)
-		return (0);
-	j = 1;
-	while (nb > 1)
+	i = src;
+	c = size;
+	if (c != 0)
 	{
-		j *= nb;
-		nb--;
+		while (--c != 0)
+		{
+			if ((*dest++ = *src++) == '\0')
+				break ;
+		}
 	}
-	return (j);
+	if (c == 0)
+	{
+		if (size != 0)
+			*dest = '\0';
+		while (*src++)
+			;
+	}
+	return (src - i - 1);
 }

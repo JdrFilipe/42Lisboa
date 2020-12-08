@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_interative_factorial.c                          :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfilipe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 15:44:40 by jfilipe           #+#    #+#             */
-/*   Updated: 2020/12/07 15:44:44 by jfilipe          ###   ########.fr       */
+/*   Created: 2020/12/03 08:58:15 by jfilipe           #+#    #+#             */
+/*   Updated: 2020/12/03 08:58:57 by jfilipe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_interative_factorial(int nb)
+int	ft_str_is_uppercase(char *str)
 {
-	int j;
+	int i;
 
-	if (nb == 0)
-		return (1);
-	if (nb < 0)
-		return (0);
-	j = 1;
-	while (nb > 1)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		j *= nb;
-		nb--;
+		if (!((str[i] > 64) && (str[i] < 91)))
+			return (0);
+		i++;
 	}
-	return (j);
+	return (1);
 }

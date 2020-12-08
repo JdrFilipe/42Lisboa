@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_interative_factorial.c                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfilipe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 15:44:40 by jfilipe           #+#    #+#             */
-/*   Updated: 2020/12/07 15:44:44 by jfilipe          ###   ########.fr       */
+/*   Created: 2020/12/03 18:24:44 by jfilipe           #+#    #+#             */
+/*   Updated: 2020/12/03 18:24:48 by jfilipe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_interative_factorial(int nb)
+char	*ft_strstr(char *str, char *to_find)
 {
+	int i;
 	int j;
 
-	if (nb == 0)
-		return (1);
-	if (nb < 0)
-		return (0);
-	j = 1;
-	while (nb > 1)
+	i = 0;
+	if (to_find[0] == '\0')
+		return (str);
+	while (str[i] != '\0')
 	{
-		j *= nb;
-		nb--;
+		j = 0;
+		while (to_find[j] != '\0')
+		{
+			if (to_find[j] == str[j + i])
+				j++;
+			else
+				break ;
+		}
+		if (to_find[j] == '\0')
+			return (str + i);
+		i++;
 	}
-	return (j);
+	return (0);
 }

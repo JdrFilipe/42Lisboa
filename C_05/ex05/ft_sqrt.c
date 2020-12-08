@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_interative_factorial.c                          :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfilipe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 15:44:40 by jfilipe           #+#    #+#             */
-/*   Updated: 2020/12/07 15:44:44 by jfilipe          ###   ########.fr       */
+/*   Created: 2020/12/08 10:00:09 by jfilipe           #+#    #+#             */
+/*   Updated: 2020/12/08 10:13:21 by jfilipe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_interative_factorial(int nb)
+int		ft_sqrt(int nb)
 {
-	int j;
+	unsigned int i;
 
+	i = 1;
 	if (nb == 0)
-		return (1);
-	if (nb < 0)
 		return (0);
-	j = 1;
-	while (nb > 1)
+	while (nb > (i * i))
 	{
-		j *= nb;
-		nb--;
+		if ((i * i) == nb)
+			return (i);
+		i++;
 	}
-	return (j);
+	return (0);
 }
