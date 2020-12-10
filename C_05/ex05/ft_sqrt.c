@@ -6,20 +6,22 @@
 /*   By: jfilipe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 10:00:09 by jfilipe           #+#    #+#             */
-/*   Updated: 2020/12/08 10:13:21 by jfilipe          ###   ########.fr       */
+/*   Updated: 2020/12/10 12:44:32 by jfilipe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_sqrt(int nb)
 {
 	unsigned int i;
+	unsigned int nn;
 
+	nn = nb;
 	i = 1;
 	if (nb == 0)
 		return (0);
-	while (nb > (i * i))
+	while (nn >= (i * i))
 	{
-		if ((i * i) == nb)
+		if ((i * i) == nn)
 			return (i);
 		i++;
 	}

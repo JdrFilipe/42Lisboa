@@ -13,15 +13,17 @@
 int		ft_is_prime(int nb)
 {
 	unsigned int i;
+	unsigned int nn;
 
+	nn = nb;
 	i = 2;
-	if (nb < 2)
+	if (nn < 2)
 		return (0);
-	if (nb == 2)
+	if (nn == 2)
 		return (1);
-	while (i * i <= nb)
+	while (i * i <= nn)
 	{
-		if (nb % i == 0)
+		if (nn % i == 0)
 			return (0);
 		else
 			i++;

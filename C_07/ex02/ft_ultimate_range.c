@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfilipe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/08 12:26:17 by jfilipe           #+#    #+#             */
-/*   Updated: 2020/12/08 12:26:24 by jfilipe          ###   ########.fr       */
+/*   Created: 2020/12/09 13:18:48 by jfilipe           #+#    #+#             */
+/*   Updated: 2020/12/09 13:18:52 by jfilipe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int		main(int argc, char *argv[])
+int	 ft_ultimate_range(int **range, int min, int max)
 {
-	argc = 1;
-	while (*argv[0])
+	int ttd[];
+	if (min >= max)
 	{
-		write(1, argv[0], 1);
-		argv[0]++;
+		range = 0;
+		return (range);
 	}
-	write(1, "\n", 1);
-	return (0);
+	ttd = malloc(max -min);
+	while(min < max)
+	{
+		*ttd = min;
+		ttd++;
+		min++;
+	}
+	range = ttd;
+	return (str);
 }

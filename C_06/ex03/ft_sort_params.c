@@ -10,35 +10,66 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strcpy(char *dest, char *src)
+int		ft_strcmp(char *s1, char *s2)
 {
 	int i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
+}
+
+void	ft_swap(char **a, char **b)
+{
+	char *c;
+
+	c = *a;
+	*a = *b;
+	*b = c;
+}
+
+void	print(int argc, char *argv[])
+{
+	int i;
+
+	i = 1;
+	while (i < argc)
 	{
-		dest[i] = src[i];
+		while (*argv[i])
+		{
+			write(1, argv[i], 1);
+			argv[i]++;
+		}
+		write(1, "\n", 1);
 		i++;
 	}
-	dest[i] = src[i];
-	return (dest);
-}
-void swap(char *str1, char *str2)
-{
-	char *str;
-
-	str = str1;
-	str1 = str2; 
-	str2 = str;
 }
 
-int main(int argc, char *argv[])
+int		main(int argc, char *argv[])
 {
-	argc = 5;
-	printf ("%s\n%s", argv[1], argv[2]);
-	swap(argv[1], argv[2]);
-	printf ("%s\n%s", argv[1], argv[2]);
+	int i;
+	int j;
 
+	i = 1;
+	if (argc == 1)
+		return (0);
+	if (argc > 2)
+	{
+		while (i < argc)
+		{
+			j = i + 1;
+			while (j < argc)
+			{
+				if (0 < ft_strcmp(argv[i], argv[j]))
+					ft_swap(&argv[i], &argv[j]);
+				j++;
+			}
+			i++;
+		}
+	}
+	print(argc, argv);
+	return (0);
 }
