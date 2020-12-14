@@ -10,15 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 int	 ft_ultimate_range(int **range, int min, int max)
 {
 	int ttd[];
 	if (min >= max)
 	{
 		range = 0;
-		return (range);
+		return (0);
 	}
-	ttd = malloc(max -min);
+	ttd = malloc(sizeof(int) *(max -min));
+	if (!ttd)
+		return (-1);
 	while(min < max)
 	{
 		*ttd = min;
@@ -26,5 +30,5 @@ int	 ft_ultimate_range(int **range, int min, int max)
 		min++;
 	}
 	range = ttd;
-	return (str);
+	return (max-min);
 }

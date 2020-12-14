@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int		ft_strlen(char *str)
 {
@@ -42,18 +41,10 @@ char	*ft_strdup(char *src)
 	char *dst;
 
 	dst = malloc(ft_strlen(src) + 1);
+	if (!dst)
+		return (0);
 	if (ft_strlen(src) < 2)
 		return(0);
 	ft_strcpy(dst, src);
 	return (dst);
-}
-
-int main()
-{
-	char src[] = "trewq";
-	char *dest;
-
-	dest = ft_strdup(src);
-	printf("%s\n", dest);
-
 }

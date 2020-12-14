@@ -10,33 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdlib.h>
 
 int *ft_range(int min, int max)
 {
-	int *str = malloc(max - min);
+	int *str;
+	int i;
 
+	i = 0;
+	str = malloc(sizeof(int) * (max - min));
 	if (min >= max)
 		return (0);
 	while(min < max)
 	{
-		*str = min;
+		str[i] = min;
 		min++;
+		i++;
 	}
 	return (str);
-}
-
-int main()
-{
-	int j;
-	int *atp;
-	
-	printf("%s\n", ft_range(1, 10));
-	while(*atp)
-	{
-		j = *atp +48;
-		write(1, &j, 1);
-		atp++;
-	}
 }
